@@ -20,5 +20,26 @@ namespace BallGamesWindowsFormsApp
             var rectangle = new Rectangle(x, y, size, size);
             graphics.FillEllipse(brush, rectangle);
         }
+
+        public void Move()
+        {
+            Clear();
+            Go();
+            Show();
+        }
+
+        private void Go()
+        {
+            x += 10;
+            y += 15;
+        }
+
+        private void Clear()
+        {
+            var graphics = form.CreateGraphics();
+            var brush = Brushes.White;
+            var rectangle = new Rectangle(x, y, size, size);
+            graphics.FillEllipse(brush, rectangle);
+        }
     }
 }
