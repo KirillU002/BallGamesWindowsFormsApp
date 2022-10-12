@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BallGamesWindowsFormsApp
 {
     public partial class MainForm : Form
     {
-        RandomSizeAndPointBall randomSizeAndPointBall;
+        List<MoveBall> moveBalls = new List<MoveBall>();
         public MainForm()
         {
             InitializeComponent();
@@ -18,13 +20,12 @@ namespace BallGamesWindowsFormsApp
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            timer.Start();            
-        }
-
-        private void randomButton_Click_1(object sender, EventArgs e)
-        {
-            randomSizeAndPointBall = new RandomSizeAndPointBall(this);
-            randomSizeAndPointBall.Show();
+            for (int i = 0; i < 10; i++)
+            {
+                var moveBall = new MoveBall(this);
+                moveBalls.Add(moveBall);
+                moveBall.Start();
+            }
         }
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
@@ -33,9 +34,12 @@ namespace BallGamesWindowsFormsApp
             pointBall.Show();
         }
 
-        private void timer_Tick(object sender, EventArgs e)
+        private void stopButton_Click(object sender, EventArgs e)
         {
-            randomSizeAndPointBall.Move();
+            foreach (var ball in moveBalls)
+            {
+                ball.Stop();
+            }
         }
     }
 }
