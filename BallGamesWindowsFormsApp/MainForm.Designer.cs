@@ -28,46 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.createButton = new System.Windows.Forms.Button();
+            this.randomButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // createButton
             // 
-            this.button1.Location = new System.Drawing.Point(669, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Создать";
-            this.button1.UseVisualStyleBackColor = true;
+            this.createButton.Location = new System.Drawing.Point(669, 12);
+            this.createButton.Name = "createButton";
+            this.createButton.Size = new System.Drawing.Size(107, 23);
+            this.createButton.TabIndex = 0;
+            this.createButton.Text = "Создать";
+            this.createButton.UseVisualStyleBackColor = true;
+            this.createButton.Click += new System.EventHandler(this.createButton_Click);
             // 
-            // button2
+            // randomButton
             // 
-            this.button2.Location = new System.Drawing.Point(669, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(107, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Остановить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.randomButton.Location = new System.Drawing.Point(669, 49);
+            this.randomButton.Name = "randomButton";
+            this.randomButton.Size = new System.Drawing.Size(107, 23);
+            this.randomButton.TabIndex = 1;
+            this.randomButton.Text = "Случайный шарик";
+            this.randomButton.UseVisualStyleBackColor = true;
+            this.randomButton.Click += new System.EventHandler(this.randomButton_Click_1);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.randomButton);
+            this.Controls.Add(this.createButton);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button createButton;
+        private System.Windows.Forms.Button randomButton;
     }
 }
 
