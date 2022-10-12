@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.createButton = new System.Windows.Forms.Button();
             this.randomButton = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // createButton
@@ -52,6 +54,11 @@
             this.randomButton.UseVisualStyleBackColor = true;
             this.randomButton.Click += new System.EventHandler(this.randomButton_Click_1);
             // 
+            // timer
+            // 
+            this.timer.Interval = 15;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -71,6 +78,7 @@
 
         private System.Windows.Forms.Button createButton;
         private System.Windows.Forms.Button randomButton;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

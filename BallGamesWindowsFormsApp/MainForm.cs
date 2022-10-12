@@ -18,7 +18,7 @@ namespace BallGamesWindowsFormsApp
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            randomSizeAndPointBall.Move();
+            timer.Start();            
         }
 
         private void randomButton_Click_1(object sender, EventArgs e)
@@ -31,6 +31,11 @@ namespace BallGamesWindowsFormsApp
         {
             var pointBall = new PointBall(this, e.X, e.Y);
             pointBall.Show();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            randomSizeAndPointBall.Move();
         }
     }
 }

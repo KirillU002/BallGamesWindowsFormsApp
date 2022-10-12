@@ -6,6 +6,8 @@ namespace BallGamesWindowsFormsApp
     {
         protected int x = 150;
         protected int y = 150;
+        private int vx = 1;
+        private int vy = 1;
         protected int size = 70;
         private MainForm form;
         public Ball(MainForm form)
@@ -30,8 +32,8 @@ namespace BallGamesWindowsFormsApp
 
         private void Go()
         {
-            x += 10;
-            y += 15;
+            x += vx;
+            y += vy;
         }
 
         private void Clear()
