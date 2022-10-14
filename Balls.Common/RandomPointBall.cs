@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Balls.Common
 {
-    public class RandomPointBall : Ball
+    public class RandomPointBall : MoveBall
     {
         public RandomPointBall(Form form) : base(form)
         {

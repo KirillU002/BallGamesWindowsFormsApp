@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace Balls.Common
 {
-    public class MoveBall : RandomPointBall
+    public class MoveBall : Ball
     {
         private System.Windows.Forms.Timer timer;
         public MoveBall(Form form) : base(form)
