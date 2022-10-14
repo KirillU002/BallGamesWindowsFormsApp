@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Windows.Forms;
 
-namespace BallGamesWindowsFormsApp
+namespace Balls.Common
 {
     public class MoveBall : RandomPointBall
     {
         private System.Windows.Forms.Timer timer;
-        public MoveBall(MainForm form) : base(form)
+        public MoveBall(Form form) : base(form)
         {
             timer = new System.Windows.Forms.Timer();
             timer.Interval = 20;
             timer.Tick += Timer_Tick;
+        }
+
+        public bool IsMovable()
+        {
+            return timer.Enabled;
         }
 
         private void Timer_Tick(object sender, EventArgs e)

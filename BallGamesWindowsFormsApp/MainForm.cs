@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Balls.Common;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace BallGamesWindowsFormsApp
 {
     public partial class MainForm : Form
     {
-        List<RandomMoveBall> moveBalls = new List<RandomMoveBall>();
+        private List<RandomMoveBall> moveBalls = new List<RandomMoveBall>();
         public MainForm()
         {
             InitializeComponent();
