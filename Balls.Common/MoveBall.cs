@@ -5,7 +5,7 @@ namespace Balls.Common
 {
     public class MoveBall : Ball
     {
-        private System.Windows.Forms.Timer timer;
+        private Timer timer;
         public MoveBall(Form form) : base(form)
         {
             timer = new System.Windows.Forms.Timer();
