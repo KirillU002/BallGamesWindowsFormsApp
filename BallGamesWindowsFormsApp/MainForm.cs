@@ -32,12 +32,6 @@ namespace BallGamesWindowsFormsApp
             }
         }
 
-        //private void MainForm_MouseDown(object sender, MouseEventArgs e)
-        //{
-        //    var pointBall = new PointBall(this, e.X, e.Y);
-        //    pointBall.Show();
-        //}
-
         private void stopButton_Click(object sender, EventArgs e)
         {
             clearButton.Enabled = true;
@@ -54,6 +48,7 @@ namespace BallGamesWindowsFormsApp
                 }
             }
             MessageBox.Show($"Вы остановили {countBalls} шаров");
+            
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -62,7 +57,7 @@ namespace BallGamesWindowsFormsApp
             {
                 ball.Clear();
             }
-
+            
             clearButton.Enabled = false;
             createButton.Enabled = true;
         }
