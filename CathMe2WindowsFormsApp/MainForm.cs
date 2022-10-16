@@ -7,7 +7,7 @@ namespace CathMe2WindowsFormsApp
 {
     public partial class MainForm : Form
     {
-        private List<RandomMoveBall> moveBalls = new List<RandomMoveBall>();
+        private List<Ball> balls = new List<Ball>();
         private int countBalls = 0;
         public MainForm()
         {
@@ -21,9 +21,13 @@ namespace CathMe2WindowsFormsApp
 
             for (int i = 0; i < 10; i++)
             {
-                var moveBall = new RandomMoveBall(this);
-                moveBalls.Add(moveBall);
+                var moveBall = new MoveBall(this);
+                balls.Add(moveBall);
                 moveBall.Start();
+                
+                var randomSizeAndPointBall = new RandomSizeAndPointBall(this);
+                balls.Add(randomSizeAndPointBall);
+                randomSizeAndPointBall.Start();
             }
         }
 
@@ -34,11 +38,11 @@ namespace CathMe2WindowsFormsApp
 
         private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
-            if (moveBalls != null)
+            if (balls != null)
             {
-                foreach (var ball in moveBalls)
+                foreach (var ball in balls)
                 {
-                    if (ball.IsMovable() && ball.Contains(e.X, e.Y))
+                    if (ball.IsMovable() && ball.Exists(e.X, e.Y))
                     {
                         ball.Stop();
                         countBalls++;
@@ -51,7 +55,7 @@ namespace CathMe2WindowsFormsApp
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            foreach (var ball in moveBalls)
+            foreach (var ball in balls)
             {
                 ball.Clear();
             }

@@ -6,24 +6,48 @@ namespace Balls.Common
 {
     public class Ball
     {
-        protected int x = 150;
-        protected int y = 150;
-        protected int vx = 1;
-        protected int vy = 1;
-        protected int size = 70;
+        protected int centerX = 150;
+        protected int centerY = 150;
+
+        protected int vx = 10;
+        protected int vy = 10;
+
+        protected int radius = 25;
         private Form form;
+        private Timer timer;
         protected static Random random = new Random();
+
         public Ball(Form form)
         {
             this.form = form;
+
+            timer = new Timer();
+            timer.Interval = 20;
+            timer.Tick += Timer_Tick;
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            Move();
+        }
+        public bool IsMovable()
+        {
+            return timer.Enabled;
+        }
+
+        public void Start()
+        {
+            timer.Start();
+        }
+
+        public void Stop()
+        {
+            timer.Stop();
         }
 
         public void Show()
         {
-            var graphics = form.CreateGraphics();
             var brush = Brushes.Aqua;
-            var rectangle = new Rectangle(x, y, size, size);
-            graphics.FillEllipse(brush, rectangle);
+            Draw(brush);
         }
 
         public void Move()
@@ -33,31 +57,54 @@ namespace Balls.Common
             Show();
         }
 
+        public int LeftSide()
+        {
+            return radius;
+        }
+
+        public int RightSide()
+        {
+            return form.ClientSize.Width - radius;
+        }
+
+        public int TopSide()
+        {
+            return radius;
+        }
+
+        public int DownSide()
+        {
+            return form.ClientSize.Height - radius;
+        }
+
         public bool OnForm()
         {
-            return x >= 0 && y >= 0 && x + size <= form.ClientSize.Width && y + size <= form.ClientSize.Height;
+            return centerX >= LeftSide() && centerY >= TopSide() && centerX <= RightSide() && centerY <= DownSide();
         }
 
-        public bool Contains(int pointX, int pointY)
+        public bool Exists(int pointX, int pointY)
         {
-            var radius = size / 2;
-            var centerX = x + radius;
-            var centerY = y + radius;
-
-            return (centerX - pointX) * (centerX - pointX) + (centerY - pointY) * (centerY - pointY) <= radius * radius;
+            var dx = pointX - centerX;
+            var dy = pointY - centerY;
+            return dx * dx + dy * dy <= radius * radius;
         }
 
-        private void Go()
+        protected virtual void Go()
         {
-            x += vx;
-            y += vy;
+            centerX += vx;
+            centerY += vy;
         }
 
         public void Clear()
         {
-            var graphics = form.CreateGraphics();
             var brush = new SolidBrush(form.BackColor);
-            var rectangle = new Rectangle(x, y, size, size);
+            Draw(brush);
+        }
+
+        private void Draw(Brush brush)
+        {
+            var graphics = form.CreateGraphics();
+            var rectangle = new Rectangle(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
             graphics.FillEllipse(brush, rectangle);
         }
     }

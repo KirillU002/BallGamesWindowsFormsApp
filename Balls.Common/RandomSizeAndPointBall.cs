@@ -2,11 +2,11 @@
 
 namespace Balls.Common
 {
-    public class RandomSizeAndPointBall : RandomPointBall
+    public class RandomSizeAndPointBall : MoveBall
     {
         public RandomSizeAndPointBall(Form form) : base(form)
         {
-            size = random.Next(5, 120);
+            radius = random.Next(5, 75);
         }
     }
 }

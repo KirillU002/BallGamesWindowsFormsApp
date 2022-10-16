@@ -7,7 +7,7 @@ namespace BallGamesWindowsFormsApp
 {
     public partial class MainForm : Form
     {
-        private List<RandomMoveBall> moveBalls = new List<RandomMoveBall>();
+        private List<Ball> balls = new List<Ball>();
         public MainForm()
         {
             InitializeComponent();
@@ -26,9 +26,13 @@ namespace BallGamesWindowsFormsApp
 
             for (int i = 0; i < 10; i++)
             {
-                var moveBall = new RandomMoveBall(this);
-                moveBalls.Add(moveBall);
+                var moveBall = new MoveBall(this);
+                balls.Add(moveBall);
                 moveBall.Start();
+
+                var randomSizeAndPointBall = new RandomSizeAndPointBall(this);
+                balls.Add(randomSizeAndPointBall);
+                randomSizeAndPointBall.Start();
             }
         }
 
@@ -38,7 +42,7 @@ namespace BallGamesWindowsFormsApp
             stopButton.Enabled = false;
 
             var countBalls = 0;
-            foreach (var ball in moveBalls)
+            foreach (var ball in balls)
             {
                 ball.Stop();
 
@@ -53,7 +57,7 @@ namespace BallGamesWindowsFormsApp
 
         private void clearButton_Click(object sender, EventArgs e)
         {
-            foreach (var ball in moveBalls)
+            foreach (var ball in balls)
             {
                 ball.Clear();
             }
