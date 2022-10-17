@@ -2,7 +2,7 @@
 
 namespace Balls.Common
 {
-    public class RandomSizeAndPointBall : MoveBall
+    public class RandomSizeAndPointBall : RandomMoveBall
     {
         public RandomSizeAndPointBall(Form form) : base(form)
         {

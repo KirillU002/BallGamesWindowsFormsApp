@@ -13,9 +13,10 @@ namespace Balls.Common
         protected int vy = 10;
 
         protected int radius = 25;
-        private Form form;
+        protected Form form;
         private Timer timer;
         protected static Random random = new Random();
+        protected Brush brush = Brushes.Aqua;
 
         public Ball(Form form)
         {
@@ -25,6 +26,21 @@ namespace Balls.Common
             timer.Interval = 20;
             timer.Tick += Timer_Tick;
         }
+        public Ball(Form form, Brush brush)
+        {
+            this.form = form;
+            this.brush = brush;
+
+            timer = new Timer();
+            timer.Interval = 20;
+            timer.Tick += Timer_Tick;
+        }
+
+        public Brush GetBrush()
+        {
+            return brush;
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             Move();
@@ -46,7 +62,6 @@ namespace Balls.Common
 
         public void Show()
         {
-            var brush = Brushes.Aqua;
             Draw(brush);
         }
 

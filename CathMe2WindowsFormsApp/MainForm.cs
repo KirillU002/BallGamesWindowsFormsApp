@@ -21,7 +21,7 @@ namespace CathMe2WindowsFormsApp
 
             for (int i = 0; i < 10; i++)
             {
-                var moveBall = new MoveBall(this);
+                var moveBall = new RandomMoveBall(this);
                 balls.Add(moveBall);
                 moveBall.Start();
                 

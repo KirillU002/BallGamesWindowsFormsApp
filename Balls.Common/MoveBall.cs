@@ -1,15 +1,16 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Balls.Common
 {
-    public class MoveBall : RandomPointBall
+    public class RandomMoveBall : RandomPointBall
     {        
-        public MoveBall(Form form) : base(form)
+        public RandomMoveBall(Form form) : base(form)
         {
             vx = GenerateRandomProjection();
             vy = GenerateRandomProjection();
         }
-        
+
         private int GenerateRandomProjection()
         {
             var randomDouble = random.NextDouble();
