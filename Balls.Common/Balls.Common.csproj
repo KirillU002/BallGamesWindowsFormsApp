@@ -46,10 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ball.cs" />
-    <Compile Include="MoveBall.cs" />
+    <Compile Include="RandomMoveBall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomPointBall.cs" />
     <Compile Include="RandomSizeAndPointBall.cs" />
+    <Compile Include="TopReachedEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

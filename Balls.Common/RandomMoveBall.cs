@@ -19,7 +19,7 @@ namespace Balls.Common
             {
                 sign = -1;
             }
-            return random.Next(2, 15) * sign;
+            return random.Next(2, 10) * sign;
         }
     }
 }

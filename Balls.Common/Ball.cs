@@ -6,13 +6,14 @@ namespace Balls.Common
 {
     public class Ball
     {
-        protected int centerX = 150;
-        protected int centerY = 150;
+        protected float centerX = 150;
+        protected float centerY = 150;
 
-        protected int vx = 10;
-        protected int vy = 10;
+        protected float vx = 10;
+        protected float vy = 10;
 
         protected int radius = 25;
+
         protected Form form;
         private Timer timer;
         protected static Random random = new Random();
@@ -119,7 +120,7 @@ namespace Balls.Common
         private void Draw(Brush brush)
         {
             var graphics = form.CreateGraphics();
-            var rectangle = new Rectangle(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
+            var rectangle = new RectangleF(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
             graphics.FillEllipse(brush, rectangle);
         }
     }
