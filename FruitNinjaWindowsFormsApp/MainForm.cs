@@ -29,8 +29,6 @@ namespace FruitNinjaWindowsFormsApp
             {
                 var bombNumber = random.Next(5);
 
-                var bananaNumber = random.Next(8);
-
                 var ball = bombNumber == 4 ? new BombBall(this) : new FruitBall(this);
 
                 fruits.Add(ball);
